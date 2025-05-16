@@ -1,0 +1,40 @@
+{
+    "categories": [
+        {
+            "id":1,
+            "image": "cardImg",
+            "title":"T-shirt with tape details",
+            "rate":"4.5",
+            "newPrice":120,
+            "oldPrice":null,
+            "salePercent":null
+        },
+        {
+            "id":2,
+            "image": "cardImg",
+            "title":"T-shirt with tape details",
+            "rate":"4.5",
+            "newPrice":120,
+            "oldPrice":null,
+            "salePercent":null
+        },
+        {
+            "id":3,
+            "image": "cardImg",
+            "title":"T-shirt with tape details",
+            "rate":"4.5",
+            "newPrice":120,
+            "oldPrice":null,
+            "salePercent":null
+        },
+        {
+            "id":4,
+            "image": "cardImg",
+            "title":"T-shirt with tape details",
+            "rate":"4.5",
+            "newPrice":120,
+            "oldPrice":null,
+            "salePercent":null
+        }
+    ]
+}
