@@ -10,7 +10,7 @@ const CazualCard: React.FC<CazualCardProps> = ({item}) => {
   return (
     <li>
         <div className="flex">
-            <Link to={'/1'} className="image cardArriveEmote relative overflow-hidden rounded-xl">
+            <Link to={`/cazual/${item.id}`} className="image w-full  cardArriveEmote relative overflow-hidden rounded-xl">
                 <div className='absolute priceOpened z-10 duration-300 w-full h-full -top-full bg-[#00000080] flex items-center justify-center'>
                 <div className='absolute text-white top-[30%]'>
                     {item.newPrice && <i className="text-3xl  font-bold text-white">${item.newPrice}</i>}
@@ -18,7 +18,7 @@ const CazualCard: React.FC<CazualCardProps> = ({item}) => {
                     {item.salePercent && <p className="text-center bg-red-100 text-red-600 px-2 py-0.5 rounded-full">{item.salePercent}% </p>}
                 </div>
                 </div>
-                <img className='cardHoverScale transition-all duration-300' src={item.image} alt="card img" />
+                <img className='cardHoverScale w-full transition-all duration-300' src={item.image} alt="card img" />
             </Link>
         </div>
         <div className="py-4 min-[500px]:px-4 space-y-3">

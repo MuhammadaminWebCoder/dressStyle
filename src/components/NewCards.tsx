@@ -1,17 +1,14 @@
 import { Star } from 'lucide-react'
-import { Button } from './ui/button'
 import { Link } from 'react-router-dom'
-import { cardItemsType } from '../types/CardBox'
 import React from 'react'
-const NewCards:React.FC<any> = ({containerClass,title,cardItems}) => {
-  
+import { cardItemsType } from '../types/CardBox'
+import { AnimatedSection } from './AnimatedSection'
+const NewCards:React.FC<{item:cardItemsType}> = ({item}) => {
   return (
-    <section className={`new_arrivals max-sm:px-4 py-6 md:py-12 ${containerClass}`}>
-        <h1 className="text-3xl lg:text-5xl font-extrabold text-center">{title}</h1>
-        <ul className="container gap-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 justify-between min-[480px]:!pt-10 pt-4">
-        {cardItems.map((item:cardItemsType)=> <li key={item.id}>
+    <AnimatedSection  directions={["bottom"]}>
+      <li>
         <div className="flex max-sm:justify-center">
-            <Link to={'/1'} className="image cardArriveEmote relative overflow-hidden rounded-xl">
+            <Link to={`/cazual/${item.id}`} className="image w-full cardArriveEmote relative overflow-hidden rounded-xl">
               <div className='absolute priceOpened z-10 duration-300 w-full h-full -top-full bg-[#00000080] flex items-center justify-center'>
                 <div className='absolute text-white top-[30%]'>
                   {item.newPrice && <i className="text-3xl font-bold text-white">${item.newPrice}</i>}
@@ -40,10 +37,10 @@ const NewCards:React.FC<any> = ({containerClass,title,cardItems}) => {
         {item.salePercent && <span className="text-sm bg-red-100 text-red-600 px-2 py-0.5 rounded-full">{item.salePercent}% </span>}
       </div>
         </div>
-        </li>)}
-        </ul>
-        <Button className='max-sm:w-full w-[170px] lg:w-[200px] h-[40px] lg:h-[48px] bg-white border rounded-full text-black mx-auto flex mt-7 duration-300 hover:text-white'>View All</Button>
-    </section>
+        </li>
+
+    </AnimatedSection>
+        
   )
 }
 

@@ -1,12 +1,12 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion"
 import { Check, SlidersVertical, X } from "lucide-react"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
-import { useState } from "react"
+import React, { useState } from "react"
 import { Button } from "../ui/button"
 import { Slider } from "../ui/slider"
 import useAppStore from "../../store"
 
-const SelectFilter = () => {
+const SelectFilter: React.FC<{ setFilterData: (filters: any) => void }> = ({ setFilterData }) => {
     const colorsSelect = [
         'bg-[#3d3b33]',
         'bg-[#2e3e4f]',
@@ -19,22 +19,27 @@ const SelectFilter = () => {
         'bg-[#2c7dbf]',
         'bg-[#2c7dbf]',
       ]
+      const [sizeDress,setSize] = useState<number>(1)
       const [range, setRange] = useState([10, 90])
+      const [check,setCheck] = useState<number>(0)
+
+      const filterApply = () => {
+        setFilterData({sizeDress,range,check})
+      }
+
       const dressSize = (selectDressId:number):void => {
         setSize(selectDressId)
       }
-    const [sizeDress,setSize] = useState<number>(1)
     
-    const [check,setCheck] = useState<number>(0)
-    const selectedColor = (checked: number): void => {
-        setCheck(checked)
-        }
-    const dressSizeArr = [
-        "Small",
-        "Medium",
-        "Large",
-        "XX - Large"
-    ]
+      const selectedColor = (checked: number): void => {
+          setCheck(checked)
+          }
+      const dressSizeArr = [
+          "Small",
+          "Medium",
+          "Large",
+          "XX - Large"
+      ]
      const openFilter = useAppStore((state) => state.openFilter);
      const setOpenFilter = useAppStore((state) => state.setOpenFilter);
   return (
@@ -99,7 +104,7 @@ const SelectFilter = () => {
           </AccordionContent>
             </AccordionItem>
         </Accordion>
-        <Button className="h-[48px] w-full rounded-full mt-4">Apply Filter</Button>
+        <Button onClick={filterApply} className="h-[48px] cursor-pointer w-full rounded-full mt-4">Apply Filter</Button>
     </div>
   )
 }

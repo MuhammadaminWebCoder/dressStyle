@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Alert, AlertTitle } from "../components/ui/alert";
 import { PATH } from "../hooks/getPath";
-import { ChevronDown, Chrome, CircleUser, Github, Instagram, Search, ShoppingCart, X } from 'lucide-react';
+import { ChevronDown, Chrome, CircleUser, EyeIcon, EyeOffIcon, Github, Instagram, Search, ShoppingCart, X } from 'lucide-react';
 import { Logo } from "../assets/icons";
 import { Input } from "../components/ui/input";
 import { UsePageType } from "../types/headerPathType";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogFooter, DialogTrigger } from "../components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
 import { Button } from "../components/ui/button";
+import useAppStore from "../store";
+import { toast } from "sonner";
+import { useLogin } from "../services/postUser";
 
 const Header = () => {
   const usePages: UsePageType[] = [
@@ -15,9 +18,7 @@ const Header = () => {
       id: 1,
       title: 'Shop',
       dropdown: [
-        { id: 1, title: 'item about us', path: '/path1' },
-        { id: 2, title: 'item2 about us', path: '/path2' },
-        { id: 3, title: 'item 2 us', path: '/path3' },
+        { id: 1, title: 'cazual', path: '/cazual' },
       ]
     },
     { id: 2, title: 'On Sale', path: '/sale' },
@@ -29,13 +30,58 @@ const Header = () => {
   const [alertClose, setAlertColse] = useState(false);
   const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-
+const navigate = useNavigate();
   const toggle = () => setIsOpen(!isOpen);
   const closeAlertHandler = () => setAlertColse(true);
+  const useSetSearch = useAppStore(state => state.setSearchValue)
+const handleSubmitSearch = (e:React.FormEvent<HTMLFormElement>) =>{
+  e.preventDefault()
+  useSetSearch(search)
+  navigate('/cazual')
+  // dark light,
+  // full page bug fix and any fix
+  // cazual filter korsatish 
+  // login post 
+  // card info ortadan ochilvotti 
+  // kerekmas pagelani olib tashlash 
+  // shop uchun [] kelishini kopaytirish 
+  // 
+}
+const [loginPassword, setLoginPassword] = useState<string>('') 
+const [loginUsername, setLoginUsername] = useState<string>('')
+const [validateUser, setValidateUser] = useState<null | boolean>(null)
+const [validatePass, setValidatePass] = useState<null | boolean>(null)
 
+ const { mutate, isPending, isError, error } = useLogin()
+
+const onHandleSubmit = (e:React.FormEvent<HTMLFormElement>) =>{
+  e.preventDefault()
+  let isValid = true;
+if (loginUsername.length <= 4) {
+  setValidateUser(false);
+  isValid = false;
+} else {
+  setValidateUser(true);
+}
+if (loginPassword.length <= 8) {
+  setValidatePass(false);
+  isValid = false;
+} else {
+  setValidatePass(true);
+}
+  mutate({
+    username: loginUsername,
+    password: loginPassword
+  });
+if (isValid) {
+  toast.success("Product added to cart", { description: `Success logIn enter` });
+}
+
+} 
+const [showPassword, setShowPassword] = useState(false) 
   return (
-    <div>
-      <Alert className={`w-full bg-black py-2 flex rounded-none border-0 ${alertClose ? 'hidden' : ''}`}>
+    <>
+      <Alert className={`w-full bg-black py-2 flex rounded-none border-0 ${alertClose == true ? 'hidden' : ''}`}>
         <div className="container mx-auto flex relative max-sm:text-[10px] text-white justify-center">
           <AlertTitle>
             Sign up and get 20% off to your first order.
@@ -44,8 +90,8 @@ const Header = () => {
           <X onClick={closeAlertHandler} className="cursor-pointer max-sm:hidden absolute right-0" />
         </div>
       </Alert>
-
-      <div className="header sticky top-0 z-10 bg-white w-full py-5">
+    <div className="header sticky top-0 z-50 bg-white w-full py-5">
+      <div>
         <div className="container max-md:px-4 lg:gap-5 justify-between flex items-center">
 
           <div className="flex items-center gap-4">
@@ -59,15 +105,15 @@ const Header = () => {
 
           <ul className="hidden md:flex lg:mx-3 relative">
             {usePages.map((item) => (
-              <li key={item.id} className="relative h-[40px] flex items-center group mx-2">
+              <li key={item.id} className="relative h-[40px] after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full flex items-center group mx-2">
                 {item.path ? <Link to={item.path}>{item.title}</Link> : item.title}
                 {item.dropdown && (
                   <>
                     <ChevronDown size={16} className="ms-1 mt-1 transition-transform duration-300 ease-in-out group-hover:rotate-180" />
-                    <ul className="absolute left-0 top-9 hidden group-hover:block w-[170px] bg-white border shadow-lg rounded p-2 z-10">
+                    <ul className="absolute left-0 top-10 hidden group-hover:block w-[170px] bg-white border shadow-lg rounded p-2 z-10">
                       {item.dropdown.map((drop) => (
                         <li key={drop.id} className="p-1 hover:text-blue-500">
-                          <Link to={drop.path}>{drop.title}</Link>
+                          {drop.path && <Link to={drop.path}>{drop.title}</Link>}
                         </li>
                       ))}
                     </ul>
@@ -78,7 +124,7 @@ const Header = () => {
           </ul>
 
           <div className="flex items-center relative gap-2">
-            <div className="bg-slate-200 max-[505px]:hidden mx-2 relative rounded-full">
+            <form onSubmit={(e) => handleSubmitSearch(e)} className="bg-slate-200 max-[505px]:hidden mx-2 relative rounded-full">
               <Input
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
@@ -86,7 +132,7 @@ const Header = () => {
                 placeholder="Search for products..."
               />
               <Search className="absolute left-3 top-3.5 w-5" />
-            </div>
+            </form>
 
             <Search onClick={() => setHandleOpenSearch(true)} className="left-3 min-[505px]:hidden top-3.5 w-5 cursor-pointer" />
             <Link to={PATH.shoping}><ShoppingCart /></Link>
@@ -96,11 +142,30 @@ const Header = () => {
                 <CircleUser />
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] grid max-[380px]:grid-cols-1 pt-9 grid-cols-2">
-                <div className="flex flex-col space-y-2">
-                  <Input className="w-full" placeholder="email"/>
-                <Input className="w-full" placeholder="password"/>
-                <Button className="w-full">Olk</Button>
+                <form onSubmit={onHandleSubmit} className="flex flex-col space-y-2">
+                  <Input onChange={(e)=> setLoginUsername(e.target.value)} value={loginUsername} className={`w-full ${validateUser  ? 'border-green-500': validateUser == false && 'border-red-500'}`} placeholder="username"/>
+                <div className="relative">
+                  <Input  
+                  onChange={(e)=> setLoginPassword(e.target.value)}
+                  value={loginPassword}
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    className={`pr-10 ${validatePass  ? 'border-green-500': validatePass == false && 'border-red-500'}`}
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute cursor-pointer bottom-1 right-1 h-7 w-7"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+                    <span className="sr-only">Toggle password visibility</span>
+                  </Button>
                 </div>
+                <Button className="w-full cursor-pointer">Ok</Button>
+                </form>
                 <hr className="max-[380px]:block hidden" /> 
                 <div className="space-y-2">
                   <Button className="w-full bg-black text-white flex gap-2 items-center"><Github size={18}/> GitHub</Button>
@@ -110,8 +175,7 @@ const Header = () => {
               </DialogContent>
             </Dialog>
           </div>
-          <div className={`bg-slate-200 ${handleOpenSearch ? 'max-[505px]:flex' : 'hidden'} absolute w-[98vw] top-24 left-1 rounded-full z-50`}>
-
+          <form onSubmit={(e) => handleSubmitSearch(e)} className={`bg-slate-200 ${handleOpenSearch ? 'max-[505px]:flex' : 'hidden'} absolute w-[98vw] top-24 left-1 rounded-full z-50`}>
               <Input
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
@@ -120,7 +184,7 @@ const Header = () => {
               />
               <Search className="absolute left-3 top-3.5 w-5" />
               <X className="absolute right-2 top-3.5 w-5 cursor-pointer" onClick={() => setHandleOpenSearch(false)} />
-            </div>
+            </form>
         </div>
       </div>
 
@@ -139,7 +203,8 @@ const Header = () => {
                         <ChevronDown size={16} className="ms-1 mt-1 transition-transform duration-300 ease-in-out group-hover:rotate-180" />
                       {item?.dropdown?.map((drop) => (
                         <li key={drop.id} className="p-1 hover:text-blue-500">
-                          <Link to={drop.path}>{drop.title}</Link>
+                         {drop.path && <Link to={drop.path}>{drop.title}</Link>}
+
                         </li>
                       ))}
                     </ul>
@@ -151,6 +216,7 @@ const Header = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

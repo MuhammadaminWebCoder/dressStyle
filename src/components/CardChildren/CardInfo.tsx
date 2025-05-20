@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Star, ChevronRight, Check, SlidersVertical, Ellipsis } from "lucide-react";
 import { Button } from "../../components/ui/button";
-import { Link } from "react-router-dom";
-import carouselsImg1 from '../../assets/image/ShowCaroucel1.png'
-import carouselsImg2 from '../../assets/image/ShowCaroucel2.png'
-import carouselsImg3 from '../../assets/image/ShowCaroucel3.png'
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast, Toaster } from "sonner";
 import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs"
 import { TabsContent } from "@radix-ui/react-tabs";
 import { Testimonial } from "../OwlCards";
 import NewCards from "../NewCards";
-import cardImg from '../../assets/image/CardImage.png'
 import { cardItemsType } from "../../types/CardBox";
+import getCards from "../../services/getCards";
+import { PATH } from "../../hooks/getPath";
+import { AnimatedSection } from "../AnimatedSection";
 
 export const CardInfo: React.FC = () => {
+  const { id } = useParams();
+  const { data = [], isLoading, isError } = getCards();
+  const CardData = data.find((item: cardItemsType) => String(item.id) === id);
 
   const colorsSelect = [
     'bg-[#3d3b33]',
@@ -26,42 +28,17 @@ export const CardInfo: React.FC = () => {
     "Large",
     "X-Large"
   ]
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "Samantha D.",
-      verified: true,
-      rating: 4,
-      text: `"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."`,
-      date:'Posted on August 14, 2023'
-    },
-    {
-      id: 2,
-      name: "Alex K.",
-      verified: true,
-      rating: 4,
-      text: "Finding clothes that align with my personal style used to be a challenge until I discovered Shopico.",
-      date:'Posted on August 14, 2023'
-    },
-    {
-      id: 3,
-      name: "James L.",
-      verified: true,
-      rating: 5,
-      text: "I'm thrilled to have stumbled upon Shopico. The selection of clothes is on-point with the latest trends.",
-      date:'Posted on August 14, 2023'
-    },
-    {
-      id: 4,
-      name: "Moody J.",
-      verified: true,
-      rating: 4,
-      text: "The quality of their products is exceptional. Each piece feels premium.",
-      date:'Posted on August 14, 2023'
-    },
-  ]
-  const [check,setCheck] = useState<number>(0)
-  const [sizeDress,setSize] = useState<number>(1)
+
+  const [check,setCheck] = useState<number>(CardData?.selectColorId)
+  const [sizeDress,setSize] = useState<number>(CardData?.selectSizeId)
+  useEffect(() => {
+  if (CardData?.selectColorId !== undefined) {
+    setCheck(CardData.selectColorId);
+  }
+  if (CardData?.selectSizeId !== undefined) {
+    setSize(CardData.selectSizeId);
+  }
+}, [CardData]);
   const [count,setCount] = useState<number>(1)
   const [imageSlideId,setImageSlideId] = useState<number>(1)
  const selectedColor = (checked: number): void => {
@@ -70,63 +47,38 @@ export const CardInfo: React.FC = () => {
   const dressSize = (selectDressId:number):void => {
     setSize(selectDressId)
   }
+  const navigate = useNavigate()
+  const allCard = [CardData]
   const handleAddCard = () => {
-    toast.success("Product added to cart", {description: `Size: ${dressSizeArr[1]}, Color: Variant ${check + 1}`
-    });
+    toast.success("Product added to cart", {description: `Size: ${dressSizeArr[sizeDress]}, Color: Variant ${CardData?.color }`});
+    setTimeout(() => {
+      navigate(PATH.shoping)
+    }, 500);
+    localStorage.setItem('data',JSON.stringify(allCard))
   }
   const slideArr = [
     {
       id:1,
-      image:carouselsImg1,
+      image:CardData?.image,
     },
     {
       id:2,
-      image:carouselsImg2,
+      image:CardData?.image1,
     },
     {
       id:3,
-      image:carouselsImg3,
+      image:CardData?.image2,
     },
   ]
-  const cardItems:cardItemsType[] = [
-    {
-      id:1,
-      image: cardImg,
-      title:'T-shirt with tape details',
-      rate:'4.5',
-      newPrice:120,
-      oldPrice:null,
-      salePercent:null,
-    },
-    {
-      id:2,
-      image: cardImg,
-      title:'skinniy fit jeans',
-      rate:'3.5',
-      newPrice:240,
-      oldPrice:260,
-      salePercent:20,
-    },
-    {
-      id:3,
-      image: cardImg,
-      title:'checed shirt',
-      rate:'4.5',
-      newPrice:180,
-      oldPrice:null,
-      salePercent:null,
-    },
-    {
-      id:4,
-      image: cardImg,
-      title:'sleve striped T-shirt',
-      rate:'4.5',
-      newPrice:130,
-      oldPrice:160,
-      salePercent:30,
-    },
+  
+  const [openMoreComment,setOpenMoreComment] = useState<boolean>(false)
+  const [openMoreCard2,setOpenMoreCard2] = useState<boolean>(false)
+  
+  const topCards: cardItemsType[] = data.filter((item:cardItemsType) => item.degree === 'new')
 
-  ]
+  const cardComment = openMoreComment ? CardData.productComents : CardData?.productComents?.slice(0, 4)
+  const visibleItems2 = openMoreCard2 ? topCards : topCards.slice(0, 4)
+
   return (
     <div className="container max-sm:px-4">
       <Toaster richColors position="top-right" />
@@ -141,39 +93,35 @@ export const CardInfo: React.FC = () => {
         <div className="imgShowCards max-[560px]:flex-col md:h-[430px] lg:h-[530px] flex">
                 <div className="gap-4 max-[560px]:h-[120px] max-[560px]:mt-4 grid min-[560px]:w-[162px] grid-rows-3 max-[560px]:order-2 max-[560px]:flex">
                     {slideArr.map((item:any,i:number) => (
-                      <div onClick={ () => setImageSlideId(i)} key={i} className="rounded-xl overflow-hidden hover:border-2 border-blue-600 w-full h-full ">
-                        <img src={item.image} alt="showCarucelImg" />
-                      </div>
+                      <AnimatedSection key={i} directions={["left"]}><div onClick={ () => setImageSlideId(i)} key={i} className="rounded-xl overflow-hidden hover:border-2 border-blue-600 w-full h-full ">
+                        <img className="h-full" src={item.image} alt="showCarucelImg" />
+                      </div></AnimatedSection>
                     ))}
                 </div>
-                <div className="rounded-xl min-[560px]:ms-3 max-[560px]:w-full max-[560px]:order-1 overflow-hidden flex items-center w-[444px] h-full">
+                <AnimatedSection directions={["bottom"]}><div className="rounded-xl min-[560px]:ms-3 max-[560px]:w-full max-[560px]:order-1 overflow-hidden flex items-center w-[444px] h-full">
                 <img className="h-full object-cover w-full" src={slideArr[imageSlideId].image} alt="showCarucelImg" />
-            </div>
+            </div></AnimatedSection>
             </div>
 
-        <div className="space-y-4">
+        <AnimatedSection directions={["right"]}><div className="space-y-4">
           <h1 className="text-4xl max-[540px]:text-2xl font-extrabold">
-            ONE LIFE GRAPHIC T-SHIRT
+            {CardData?.title}
           </h1>
           <div className="flex items-center gap-2">
-            {[...Array(4)].map((_, i) => (
+            {[...Array(CardData?.rate)].map((_, i) => (
               <Star key={i} className="max-[540px]:w-4 max-[540px]:h-4 w-5 h-5 fill-yellow-400 text-yellow-400" />
             ))}
             <Star className="max-[540px]:w-4 max-[540px]:h-4 w-5 h-5 text-yellow-400" />
-            <span className="text-sm text-gray-600">4.5/5</span>
+            <span className="text-sm text-gray-600">{CardData?.rate}/5</span>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="max-[540px]:text-2xl text-4xl font-bold text-black">$260</span>
-            <span className="max-[540px]:text-2xl text-4xl font-semibold line-through text-gray-400">$300</span>
-            <span className="text-red-500 bg-red-200 rounded-2xl max-[540px]:py-0 px-2 py-1.5 text-sm">-40%</span>
+            <span className="max-[540px]:text-2xl text-4xl font-bold text-black">{CardData?.newPrice}$</span>
+            {CardData?.oldPrice && <span className="max-[540px]:text-2xl text-4xl font-semibold line-through text-gray-400">{CardData?.oldPrice}$</span>}
+            {CardData?.salePercent && <span className="text-red-500 bg-red-200 rounded-2xl max-[540px]:py-0 px-2 py-1.5 text-sm">{CardData?.salePercent}</span>}
           </div>
 
-          <p className="text-gray-600 text-sm">
-            This graphic t-shirt which is perfect for any occasion. Crafted from a
-            soft and breathable fabric, it offers superior comfort and style.
-          </p>
-
+          <p className="text-gray-600 text-sm">{CardData?.description}</p>
           <hr />
           <div>
             <p className="text-lg text-slate-500 mb-2">Select Colors</p>
@@ -191,7 +139,7 @@ export const CardInfo: React.FC = () => {
             <p className="text-lg text-slate-500 mb-2">Choose Size</p>
             <div className="flex flex-wrap gap-2">
               {dressSizeArr.map((size, i) => (
-                <Button onClick={() => dressSize(i)} key={i} variant={i === sizeDress ? "default" : "outline"} className="!px-7 max-[480px]:h-[40px]  h-[50px] rounded-full text-md">
+                <Button onClick={() => dressSize(i)} key={i} variant={i === sizeDress ? "default" : "outline"} className="!px-7 max-[480px]:h-[40px] cursor-pointer h-[50px] rounded-full text-md">
                   {size}
                 </Button>
               ))}
@@ -205,9 +153,9 @@ export const CardInfo: React.FC = () => {
               <span className="max-[480px]:w-[30px] w-[50px] text-center">{count}</span>
               <button onClick={() => setCount(count + 1)} className="max-[480px]:px-3 px-6 cursor-pointer text-3xl">+</button>
             </div>
-            <Button onClick={handleAddCard} className="rounded-full flex-1  max-[480px]:h-[40px] h-[50px]">Add to Cart</Button>
+            <Button onClick={handleAddCard} className="rounded-full cursor-pointer flex-1  max-[480px]:h-[40px] h-[50px]">Add to Cart</Button>
           </div>
-        </div>
+        </div></AnimatedSection>
       </div>
       <div className="container py-12">
       <div className="w-full">
@@ -231,38 +179,45 @@ export const CardInfo: React.FC = () => {
               </div>
           </div>
           <div className="grid grid-cols-1 min-[560px]:grid-cols-2 gap-4">
-          {testimonials.map((t) => (
-            <div className="border border-gray-200 rounded-xl p-6 h-full bg-white shadow-sm flex justify-between">
+          {cardComment?.map((t:Testimonial) => (
+            <AnimatedSection key={t.id} directions={["bottom"]}>
+              <div className="border border-gray-200 rounded-xl p-6 h-full bg-white shadow-sm flex justify-between">
               <div>
                 <div className="flex mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star fill="currentColor"  key={i} className={`w-5 h-5 ${i < t.rating ? "text-yellow-400" : "text-gray-300"}`} />
+                    <Star fill="currentColor"  key={i} className={`w-5 h-5 ${i < t.rate ? "text-yellow-400" : "text-gray-300"}`} />
                   ))}
                 </div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-semibold text-xl">{t.name}</span>
-                  {t.verified && (
+                  <span className="font-semibold text-xl">{t.title}</span>
+                  {t.check && (
                     <span className="inline-flex items-center">
                     <span className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center"><Check className="!w-[13px] text-white"/></span>
                   </span>
                   )}
                 </div>
-                <p className="text-slate-600 h-[80px] text-md flex-grow line-clamp-3">{t.text}</p>
+                <p className="text-slate-600 h-[80px] text-md flex-grow line-clamp-3">{t.description}</p>
                 <p className="text-slate-700 font-semibold text-md mt-1">{t.date}</p>
               </div>
               <div className="ms-4">
                 <Ellipsis className="w-[40px]"/>
               </div>
             </div>
+            </AnimatedSection>
           ))}
           </div>
-          <Button className="!px-7 !bg-white mt-8 text-black h-[50px] flex mx-auto rounded-full text-md">
+          {cardComment?.length >= 4 && <Button onClick={() => setOpenMoreComment(true)} className="!px-7 !bg-white mt-8 text-black h-[50px] flex mx-auto rounded-full text-md">
               Load More Reviews
-          </Button>
+          </Button>}
 
           {/* ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬ */}
-          {/* extraclass px-0 */}
-          <NewCards containerClass={'!px-0'} title={'NEW ARRIVALS'} cardItems={cardItems}/>
+          <section className={`new_arrivals max-sm:px-4 py-6 md:py-12 `}>
+        <h1 className="text-3xl lg:text-5xl font-extrabold text-center">{'NEW ARRIVALS'}</h1>
+        <ul className="container gap-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 justify-between min-[480px]:!pt-10 pt-4">
+        {visibleItems2.map((item:cardItemsType,ind:number)=> <NewCards key={ind} item={item}/>)}
+        </ul>
+        <Button onClick={() => setOpenMoreCard2(true)} className={`max-sm:w-full w-[170px] lg:w-[200px] h-[40px] lg:h-[48px] bg-white border rounded-full text-black mx-auto flex mt-7 duration-300 hover:text-white ${topCards.length <= 4 && 'hidden'} ${openMoreCard2 && 'hidden'}`}>View All</Button>
+      </section>
 
         </TabsContent>
         <TabsContent value="tab3">

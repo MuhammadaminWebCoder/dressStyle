@@ -1,6 +1,6 @@
 export const PATH = {
     home:'/',
-    cardChild:'/:id',
+    cardChild:'/cazual/:id',
     cazual:'/cazual',
     shoping:'/shoping',
 }
