@@ -50,7 +50,7 @@ const [loginUsername, setLoginUsername] = useState<string>('')
 const [validateUser, setValidateUser] = useState<null | boolean>(null)
 const [validatePass, setValidatePass] = useState<null | boolean>(null)
 const useAuth = useAuthStore((state) => state.user )
- const { mutate, isPending, isError, error } = useLogin()
+ const { mutate} = useLogin()
 
 const onHandleSubmit = (e:React.FormEvent<HTMLFormElement>) =>{
 e.preventDefault()

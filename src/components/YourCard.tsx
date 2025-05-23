@@ -57,6 +57,7 @@ const YourCard = () => {
   const [promoCode,setPromoCode] = useState<number>(0)
   const total = subtotal + delivery - promoCode ;
   const [checkPay,setCheckPay] = useState<boolean>(false)
+  setCheckPay(false)
   const goToPay = () => {
     if (checkPay) {
         toast.success(`${total} - pay thank you`)

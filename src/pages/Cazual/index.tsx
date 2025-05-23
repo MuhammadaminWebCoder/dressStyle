@@ -1,11 +1,14 @@
 import { useState } from "react"
 import SelectCazual from "../../components/Cazual/SelectCazual"
-import SelectFilter from "../../components/Cazual/SelectFilter"
+import SelectFilter, { setDataFilter } from "../../components/Cazual/SelectFilter"
 import { ChevronRight } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const Cazual = () => {
-  const [filterData,setFilterData] = useState({})
+  const [filterData,setFilterData] = useState<setDataFilter>({sizeDress: "",
+  range: [0, 100],
+  check: "",
+  cazual: ""})
   return (
     <div className="container max-md:px-4 pb-10">
       <hr />
