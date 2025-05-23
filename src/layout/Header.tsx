@@ -6,7 +6,7 @@ import { Logo } from "../assets/icons";
 import { Input } from "../components/ui/input";
 import { UsePageType } from "../types/headerPathType";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTrigger } from "../components/ui/dialog";
 import { Button } from "../components/ui/button";
 import useAppStore from "../store";
 import { toast } from "sonner";
@@ -41,9 +41,8 @@ const handleSubmitSearch = (e:React.FormEvent<HTMLFormElement>) =>{
   useSetSearch(search)
   navigate('/cazual')
   setHandleOpenSearch(false)
-  // dark light,
+  // ishlatimlayotganlarni olib tashlash,
   // full page bug fix and any fix
-  // card info ortadan ochilvotti 
 }
 
 const [loginPassword, setLoginPassword] = useState<string>('') 
@@ -183,7 +182,7 @@ const [showPassword, setShowPassword] = useState(false)
                 </div></> : <div className="w-full">
                     <p className="flex items-center justify-center text-2xl font-bold my-3">username: {useAuth?.username}</p>
                     <p className="flex items-center justify-center text-2xl font-bold my-3">password: {useAuth?.password}</p>
-                    <Button onClick={handleOnLogOut} className="mx-auto cursor-pointer flex bg-red-500"><LogOut/> Log out</Button>
+                    <DialogDescription><Button onClick={handleOnLogOut} className="mx-auto cursor-pointer flex bg-red-500"><LogOut/> Log out</Button></DialogDescription>
                   </div>}
               </DialogContent>
             </Dialog>

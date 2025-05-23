@@ -9,7 +9,7 @@ import { cardItemsType } from "../../types/CardBox"
 import { Button } from "../../components/ui/button"
 
 const Home = () => {
-  const { data, isLoading, isError } = getCards();
+  const { data } = getCards();
   const [openMoreCard1,setOpenMoreCard1] = useState<boolean>(false)
   const [openMoreCard2,setOpenMoreCard2] = useState<boolean>(false)
   

@@ -6,9 +6,14 @@
   import { Button } from "../ui/button"
   import useAppStore from "../../store"
   import getCards from "../../services/getCards"
-
-  const SelectCazual:React.FC<{filterData:any}> = ({filterData}) => {
-    const reytingSort:any = [
+import { setDataFilter } from "./SelectFilter"
+export interface ReytingSort {
+    id: number;
+    title: string;
+    resurce: string;
+}
+  const SelectCazual:React.FC<{filterData:setDataFilter}> = ({filterData}) => {
+    const reytingSort = [
       {
         id:1,
         title:'Most Popular',
@@ -26,11 +31,10 @@
       },
     ]
 
-    const { data:cazualCardInfo, isLoading, isError } = getCards();
+    const { data:cazualCardInfo } = getCards();
     const useSearch = useAppStore(state => state.searchValue);
     const [reytingIndex,setReytingIndex] = useState<number>(0)
     const setOpenFilter = useAppStore((state) => state.setOpenFilter);
-    
     const [filterType, setFilterType] = useState<'search' | 'filter' | 'none'>('none');
 
 useEffect(() => {
@@ -39,7 +43,7 @@ useEffect(() => {
   else setFilterType('none');
 }, [useSearch, filterData]);
 
-const fill = cazualCardInfo.filter((item: any) => {
+const fill = cazualCardInfo.filter((item: cardItemsType) => {
   const degreeMatch = !reytingSort[reytingIndex]?.resurce || reytingSort[reytingIndex]?.resurce?.toLowerCase() === item.degree?.toLowerCase();
 
   if (filterType === 'search') {
@@ -63,9 +67,6 @@ const fill = cazualCardInfo.filter((item: any) => {
   return false;
 });
 
-
-    
-
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
@@ -79,14 +80,14 @@ const fill = cazualCardInfo.filter((item: any) => {
       <div className='col-span-12  lg:col-span-9'>
         <div className="hidden lg:flex justify-between items-center">
           <p className="text-3xl font-semibold">Casual</p>
-          <div className="flex text-slate-500">
+            <div className="flex text-slate-500">
             Showing {totalPages}-{paginatedItems.length} of {cazualCardInfo.length} Products
             <div className="flex">Sort by: 
               <div className="text-black relative font-semibold group flex items-center cursor-pointer ms-2">
                 {reytingSort[reytingIndex].title}
                 <ChevronDown size={16} className="ms-1 mt-1 transition-transform duration-300 ease-in-out group-hover:rotate-180"/>
                   <ul className="absolute right-0 text-center top-6 hidden w-[150px] border border-slate-50 group-hover:block bg-white shadow-lg rounded p-2 z-10">
-                      {reytingSort.map((item:any,ind:number) => <li key={item.id} onClick={() => setReytingIndex(ind)} className="whitespace-nowrap p-1 hover:text-blue-500 cursor-pointer">
+                      {reytingSort.map((item:ReytingSort,ind:number) => <li key={item.id} onClick={() => setReytingIndex(ind)} className="whitespace-nowrap p-1 hover:text-blue-500 cursor-pointer">
                         {item.title}
                       </li>)}
                   </ul>

@@ -35,9 +35,15 @@ type ColorType =
   | "white"
   | "black";
 
+  export interface setDataFilter {
+    sizeDress:string
+    range:[number,number]
+    check:string
+    cazual:string
+  }
 type CazualType = "T-shirts" | "Shorts" | "Shirts" | "Hoodie" | "Jeans";
 
-const SelectFilter: React.FC<{ setFilterData: (filters: any) => void }> = ({setFilterData}) => {
+const SelectFilter: React.FC<{ setFilterData: (filters: setDataFilter) => void }> = ({setFilterData}) => {
   const dressSizeArr: SizeType[] = [
     "XX-Small",
     "X-Small",

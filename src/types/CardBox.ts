@@ -18,5 +18,5 @@ import { Testimonial } from "../components/OwlCards";
     cazual:'Jeans'|'Hoodie'|'Shirts'|'Shorts'|'T-shirts',
     oldPrice:null | number,
     salePercent:null | number,
-    productComents:Testimonial
+    productComents:Testimonial[]
 }

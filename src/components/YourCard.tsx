@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronRight, Tag, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { AnimatedSection } from "./AnimatedSection";
@@ -61,16 +61,19 @@ const YourCard = () => {
     if (checkPay) {
         toast.success(`${total} - pay thank you`)
     }else{
-      toast.warning(`no checked pay ${total} . pay with payMe Click or more`)
+      toast.warning(`no checked pay ${total}$ . pay with payMe Click or more`)
     }
   }
   const applyCode = () => {
       if (code == 'Muhammadamin') {
-        toast.success(`promocode - ${code} succes ${promoCode}$ sale promocode`)
         setPromoCode(155)
       }
   }
-
+useEffect(() => {
+    if (promoCode > 0) {
+      toast.success(`Promocode - ${code} success! You got $${promoCode} sale.`);
+    }
+  }, [promoCode, code]);
   return (
     <>
       <hr />
@@ -87,7 +90,7 @@ const YourCard = () => {
       <div className="grid w-full gap-4 mt-5 !pb-[80px] grid-cols-12">
         <ul className="col-span-12 md:col-span-7 lg:col-span-7 self-start border rounded-2xl max-[500px]:p-2 p-4">
           {cartItems?.map((item: CartItem, ind: number) => (
-            <AnimatedSection directions={["left"]}><div key={item.id}>
+            <AnimatedSection key={item.id} directions={["left"]}><div >
               <li className="flex">
                 <div className="border rounded-lg overflow-hidden max-[500px]:w-[100px] max-[500px]:h-[100px] w-[124px] h-[124px]">
                   <img className="w-full h-full object-contain" src={item.image} alt="cardImg" />

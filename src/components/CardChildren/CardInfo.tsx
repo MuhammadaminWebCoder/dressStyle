@@ -11,12 +11,22 @@ import { cardItemsType } from "../../types/CardBox";
 import getCards from "../../services/getCards";
 import { PATH } from "../../hooks/getPath";
 import { AnimatedSection } from "../AnimatedSection";
+export interface SelectedCard {
+  id?: number | string;
+  title?: string;
+  color: string;
+  size: string;
+  newPrice?: number;
+  oldPrice?: number;
+  salePercent?: number;
+  count: number;
+  image?: string;
+};
 
 export const CardInfo: React.FC = () => {
   const { id } = useParams();
-  const { data = [], isLoading, isError } = getCards();
+  const { data = []} = getCards();
   const CardData = data.find((item: cardItemsType) => String(item.id) === id);
-
  
   const [count,setCount] = useState<number>(1)
   const [imageSlideId,setImageSlideId] = useState<number>(0)
@@ -53,7 +63,7 @@ useEffect(() => {
 
  const handleAddCard = () => {
    
-   const unicData = existingData.some((item:any) => 
+   const unicData = existingData.some((item:SelectedCard) => 
     item.id === selectedCard.id && item.title === selectedCard.title
   )
   if (!unicData) {
@@ -70,6 +80,10 @@ useEffect(() => {
        toast.warning("This product is already in cart");
     }
 };
+ interface SlideArr {
+    id: number;
+    image: string;
+}
   const slideArr = [
     {
       id:1,
@@ -106,7 +120,7 @@ useEffect(() => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="imgShowCards max-[560px]:flex-col md:h-[430px] lg:h-[530px] flex">
                 <div className="gap-4 max-[560px]:h-[120px] max-[560px]:mt-4 grid min-[560px]:w-[162px] grid-rows-3 max-[560px]:order-2 max-[560px]:flex">
-                    {slideArr.map((item:any,i:number) => (
+                    {slideArr?.map((item:SlideArr,i:number) => (
                       <AnimatedSection key={i} onClick={() => setImageSlideId(i)} directions={["left"]}  extraClass="rounded-xl border overflow-hidden hover:border-2 hover:border-blue-600 w-full h-full ">
                         <img className="h-full w-full object-cover" src={item.image} alt="showCarucelImg" />
                       </AnimatedSection>
@@ -152,7 +166,7 @@ useEffect(() => {
           <div>
             <p className="text-lg text-slate-500 mb-2">Choose Size</p>
             <div className="flex flex-wrap gap-2">
-              {CardData?.size.map((size:any, i:number) => (
+              {CardData?.size.map((size:string, i:number) => (
                 <Button onClick={() => dressSize(size)} key={i} variant={size === sizeDress ? "default" : "outline"} className="!px-7 max-[480px]:h-[40px] cursor-pointer h-[50px] rounded-full text-md">
                   {size}
                 </Button>

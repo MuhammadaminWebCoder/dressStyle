@@ -2,12 +2,9 @@ import { Star } from "lucide-react"
 import { Link } from "react-router-dom"
 import React from 'react'
 import { AnimatedSection } from "../AnimatedSection"
+import { cardItemsType } from "@/types/CardBox"
 
-export interface CazualCardProps {
-    item:any
-}
-
-const CazualCard: React.FC<CazualCardProps> = ({item}) => {
+const CazualCard: React.FC<{item:cardItemsType}> = ({item}) => {
   return (
     <AnimatedSection directions={["bottom"]}><li>
         <div className="flex">

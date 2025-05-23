@@ -2,17 +2,16 @@ import React, { useRef } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import { Navigation } from "swiper/modules"
-import "swiper/css"
-import "swiper/css/navigation"
+import "swiper/swiper-bundle.css"
 import { StarIcon } from "../assets/icons"
-import { cardItemsType } from "@/types/CardBox"
+import { cardItemsType } from "../types/CardBox"
 import { AnimatedSection } from "./AnimatedSection"
 
 export type Testimonial = {
   id: number
   title?: string
   rate: number
-  check: boolean
+  check?: boolean
   date?: string
   description: string
 }
@@ -37,7 +36,6 @@ export const OwlCards: React.FC<{ data: cardItemsType[] }> = ({ data }) => {
 
       <Swiper
         modules={[Navigation]}
-        loop={true}
         spaceBetween={20}
         slidesPerView={1}
         navigation={{
@@ -57,15 +55,12 @@ export const OwlCards: React.FC<{ data: cardItemsType[] }> = ({ data }) => {
           1024: { slidesPerView: 3 },
         }}
       >
-        {data?.map((item) => item.productComents?.map((t: Testimonial) => (
+        {data?.map((item:cardItemsType) => item?.productComents?.map((t: Testimonial) => (
             <SwiperSlide key={t.id}>
               <div className="border border-gray-200 rounded-xl p-6 h-[190px] bg-white shadow-sm flex flex-col">
                 <div className="flex mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      className={`w-5 h-5 ${i < t.rate ? "text-yellow-400" : "text-gray-300"}`}
-                    />
+                    <StarIcon key={i} className={`w-5 h-5 ${i < t.rate ? "text-yellow-400" : "text-gray-300"}`}/>
                   ))}
                 </div>
                 <div className="flex items-center gap-2 mb-2">
