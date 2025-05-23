@@ -1,66 +1,80 @@
 {
-  "users":[
+  "users": [
     {
-      "id": 1,
-      "Username": "Muha",
-      "Password": "MmmM"
+      "id": "9a1a",
+      "username": "muhammadamin",
+      "password": "dwd22222222"
+    },
+    {
+      "id": "9d51",
+      "username": "dwdwdwdwd",
+      "password": "wdwdwdwdwd"
     }
   ],
   "categories": [
     {
       "id": 1,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://purepng.com/public/uploads/large/purepng.com-red-t-shirtclothingred-t-shirtfashion-dress-shirt-cloth-tshirt-631522326799mcfdo.png",
+      "image1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkffS_kK4Prl_IArXR4Pgu_qmoYcLePui-XOMK1sf2gxZD-RWKDEPTGPoMrPcdKGT4zSQ&usqp=CAU",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS3CKWt3xzGdasnOX4vyYUU_azETyF1zVv_g&s",
+      "title": "T-shirt with polo new detail",
       "rate": 4,
       "newPrice": 120,
       "degree": "new",
-      "oldPrice": 300,
-      "salePercent": null,
+      "cazual": "t-shirt",
+      "oldPrice": 320,
+      "salePercent": 67,
       "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 5,
-          "title": "Samantha D.a",
+          "title": "Andrien R",
+          "check": true,
+          "description": "Crafted from a soft and breathable fabric, This graphic t-shirt which is perfect for any occasion.  ",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 5,
+          "title": "Samantha D",
+          "check": true,
+          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 24, 2023"
+        },
+        {
+          "id": 3,
+          "rate": 5,
+          "title": "Sam a",
+          "check": true,
+          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "May 12, 2023"
+        },
+        {
+          "id": 4,
+          "rate": 5,
+          "title": "amantha D",
           "check": true,
           "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         },
         {
-          "id": 1,
+          "id": 5,
           "rate": 5,
-          "title": "Samantha D.a",
-          "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-          "date": "August 14, 2023"
-        },
-        {
-          "id": 1,
-          "rate": 5,
-          "title": "Samantha D.a",
-          "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-          "date": "August 14, 2023"
-        },
-        {
-          "id": 1,
-          "rate": 5,
-          "title": "Samantha D.a",
-          "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-          "date": "August 14, 2023"
-        },
-        {
-          "id": 1,
-          "rate": 5,
-          "title": "Samantha D.a",
+          "title": "asLor Ds",
           "check": true,
           "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
@@ -70,47 +84,65 @@
     {
       "id": 2,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRItmAaCJxgA_i6zvChbSQvUn12Q0adQTgpIw&s",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4ntfvUvzSpKoZQ_SAbG_jd5XwHXoG0yIisw&s",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpTMlASFcxxNTLSFCH50ZML8ug7_j0vYfVF2vyYiuYFMj5gHNZ8VTaduALpsTTJhXvMIk&usqp=CAU",
+      "title": "shirts with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 160,
       "degree": "new",
+      "cazual": "shirts",
       "oldPrice": null,
       "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "description": "This graphic shirts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
+          "title": "Lagaantha D",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic shirts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 3,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://png.pngtree.com/png-vector/20240722/ourmid/pngtree-low-rise-elastic-waist-men-shorts-png-image_13110030.png",
+      "image1": "https://static.vecteezy.com/system/resources/thumbnails/046/947/132/small/white-men-s-sports-shorts-on-transparent-background-png.png",
+      "image2": "https://static.vecteezy.com/system/resources/previews/037/174/417/non_2x/ai-generated-3d-rendering-of-a-man-shorts-on-transparent-background-ai-generated-free-png.png",
+      "title": "Basketball Shorts BasketBall with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 200,
       "degree": "new",
-      "oldPrice": null,
-      "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "cazual": "shorts",
+      "oldPrice": 280,
+      "salePercent": 77,
+      "description": "This graphic BasketBall which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "black",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Large",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
@@ -118,223 +150,374 @@
           "rate": 4,
           "title": "Samantha D.",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic BasketBall which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 2,
+          "title": "LoremA S",
+          "check": true,
+          "description": "This graphic BasketBall which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "May 13, 2023"
         }
       ]
     },
     {
       "id": 4,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://www.davidgandywellwear.com/cdn/shop/products/Ultimate-Loopback-Hoodie-Black.jpg?v=1677258480&width=1445",
+      "image1": "https://anothercotton.com/cdn/shop/files/ACL-SRC-Hoodie-VB-Front-Neu2.jpg?v=1729687178&width=1080",
+      "image2": "https://callingallcaptainsband.com/wp-content/uploads/2022/11/unisex-heavy-blend-hoodie-indigo-blue-front-6371902c0bb58-600x600.jpg",
+      "title": "Hoodie with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 70,
       "degree": "new",
+      "cazual": "Hoodie",
       "oldPrice": null,
       "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "black"
+      ],
+      "size": [
+        "XX-Large",
+        "X-Large",
+        "Large",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4.5,
-          "title": "Samantha D.",
+          "title": "assal Os",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 4.5,
+          "title": "Samanth",
+          "check": true,
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 5,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://m.media-amazon.com/images/I/81QDxg-SjuL._SS1000_.jpg",
+      "image1": "https://kleidermafia.com/cdn/shop/files/F03BB4E3-BB95-4D57-AD67-AAE9D183339D.jpg?v=1700832669&width=1080",
+      "image2": "https://images.only.com/15234743/3860808/001/only-onljuicyhwwidelegdnmrea365noos-blue.jpg?v=1d0559dbf5250ea23f4dcbd1bb39179a&format=webp&width=1280&quality=90&key=25-0-3",
+      "title": "Jeans with tape details",
       "rate": 4,
-      "newPrice": 120,
-      "degree": "new",
-      "oldPrice": null,
-      "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "newPrice": 40,
+      "degree": "top",
+      "cazual": "Jeans",
+      "oldPrice": 100,
+      "salePercent": 60,
+      "description": "This graphic Jeans which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
-          "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "title": "jenaries",
+          "check": false,
+          "description": "This graphic Jeans which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2024"
+        },
+        {
+          "id": 2,
+          "rate": 4,
+          "title": "saroaries",
+          "check": false,
+          "description": "This graphic Jeans which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 3,
+          "rate": 4,
+          "title": "annari",
+          "check": false,
+          "description": "This graphic Jeans which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 6,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6yDwzdA4hrr6QAa7Zd-QeSLpZcZFz7-Lwig&s",
+      "image1": "https://mensworld.com.bd/wp-content/uploads/2023/09/FSF-1170.jpg",
+      "image2": "https://5.imimg.com/data5/YH/FP/MY-39559635/1-500x500.jpeg",
       "title": "T-shirt with tape details",
       "rate": 4,
-      "newPrice": 120,
-      "degree": "top",
-      "oldPrice": null,
-      "salePercent": null,
+      "newPrice": 90,
+      "degree": "new",
+      "cazual": "t-shirt",
+      "oldPrice": 130,
+      "salePercent": 80,
       "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "Large",
+        "X-Large",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
+          "title": "Lara D",
           "check": true,
           "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-          "date": "August 14, 2023"
+          "date": "August 14, 3023"
         }
       ]
     },
     {
       "id": 7,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
-      "rate": 4,
-      "newPrice": 120,
+      "image": "https://m.media-amazon.com/images/I/71gEWlwpN9L._AC_SL1500_.jpg",
+      "image1": "https://m.media-amazon.com/images/I/61rwR3r5U4L._AC_UY1000_.jpg",
+      "image2": "https://catworkwear.com/cdn/shop/files/caterpillar-workwear-mens-trademark-hoodie-carmenere-heather_01.webp?v=1726691763",
+      "title": "Hoodie with tape details",
+      "rate": 5,
+      "newPrice": 210,
       "degree": "new",
-      "oldPrice": null,
-      "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "cazual": "Hoodie",
+      "oldPrice": 220,
+      "salePercent": 4,
+      "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
+          "title": "Dimme",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 4,
+          "title": "Lana Sa",
+          "check": true,
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 3,
+          "rate": 4,
+          "title": "Billie E",
+          "check": true,
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 8,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://m.media-amazon.com/images/I/81nj4eXPAaL._AC_SX385_.jpg",
+      "image1": "https://i.ebayimg.com/images/g/PIcAAOSwmkNh8rth/s-l400.jpg",
+      "image2": "https://pangaia.com/cdn/shop/products/Organic-Cotton-Hoodie-Jade-Green-1.png?crop=center&height=1999&v=1662475619&width=1500",
+      "title": "Hoodie with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 200,
       "degree": "top",
+      "cazual": "Hoodie",
       "oldPrice": null,
       "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
-          "rate": 4,
+          "rate": 5,
+          "title": "Emma D",
+          "check": true,
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 3,
+          "title": "Ammane",
+          "check": true,
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 3,
+          "rate": 1,
           "title": "Samantha D.",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Hoodie which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 9,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/D33001s4.jpg?im=Resize,width=750",
+      "image1": "https://image.hm.com/assets/005/dd/76/dd7661f8c28d816d3da459006e9902f6bd79d0dd.jpg?imwidth=768",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXv-gdS7Zb2zoOPAIFVNJBUUNrdra7vR4kbUCQA-6bFeCBuoxheHb7GZG2o-zbL2jZbyo&usqp=CAU",
+      "title": "Shirts with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 250,
       "degree": "top",
-      "oldPrice": null,
-      "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "cazual": "Shirts",
+      "oldPrice": 300,
+      "salePercent": 30,
+      "description": "This graphic Shirts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "3X-Large",
+        "Large",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
+          "title": "Mediana D.",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Shirts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 10,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "title": "T-shirt with tape details",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzc16Fog2VpkH1mjA1smglguNWZLNE6NBqAA&s",
+      "image1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStDAFNZ_k_uRo0sfNAEb1S15Xm7WEICSRTJb9gVdkmONZTzVyPSm9BAvRvUkqWEAVg-uw&usqp=CAU",
+      "image2": "https://www.sndkids.com/cdn/shop/products/fine_DNM_295516-619676.jpg?v=1683128697",
+      "title": "Shorts with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 180,
       "degree": "old",
-      "oldPrice": null,
-      "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "cazual": "Shorts",
+      "oldPrice": 230,
+      "salePercent": 20,
+      "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "orange",
+        "pink",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Large",
+        "3X-Large",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
           "id": 1,
           "rate": 4,
-          "title": "Samantha D.",
+          "title": "Oliver D.",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 2,
+          "rate": 2,
+          "title": "olrda D.",
+          "check": true,
+          "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "date": "August 14, 2023"
+        },
+        {
+          "id": 3,
+          "rate": 5,
+          "title": "Silver D.",
+          "check": true,
+          "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]
     },
     {
       "id": 11,
-      "image": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image1": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
-      "image2": "https://lh3.googleusercontent.com/proxy/B0frUXD1a8Hip-NAyvghnH8B6csTAVNOWNBITTtusFOJ55tI28Cr1iK_YeaTATd80XlJvXU3_FJFI6TPqwrHRT0g7DabeWGDnSTIgcl5TB2z4keSfzygilmYjohmTwADN-gHtVkhZzjWEKfbKK4m9L3_HQ_3499BlXorZOywSfySBQFwlmyo_Ob2q1Z-8JHsad6-MAoaKYi66bCbAmT8FPIA51Jit1-GZ3_Dj6Qh3pEAjQ10Hf8-wJzD",
+      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/cd428faafcc54b0a8ea4af4f0155af9b_9366/Train_Essentials_Woven_Training_Shorts_Black_IC6976_01_laydown.jpg",
+      "image1": "https://shoppinginibiza.com/192370-large_default/adidas-performance-ic6976-black-black-short.jpg",
+      "image2": "https://shoppinginibiza.com/191774-large_default/adidas-performance-2in1-hn1044-womens-black-short.jpg",
       "title": "oldShirt with tape details",
       "rate": 4,
-      "newPrice": 120,
+      "newPrice": 220,
       "degree": "old",
+      "cazual": "Shorts",
       "oldPrice": null,
       "salePercent": null,
-      "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-      "color": "red",
-      "selectColorId": 1,
-      "size": "large",
-      "selectSizeId": 1,
+      "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+      "color": [
+        "red",
+        "green",
+        "blue",
+        "white"
+      ],
+      "size": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium"
+      ],
       "count": 1,
       "productComents": [
         {
@@ -342,7 +525,7 @@
           "rate": 4,
           "title": "Samantha D.",
           "check": true,
-          "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+          "description": "This graphic Shorts which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
           "date": "August 14, 2023"
         }
       ]

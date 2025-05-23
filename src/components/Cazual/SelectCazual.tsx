@@ -1,16 +1,8 @@
   import { ChevronDown, SlidersVertical } from "lucide-react"
-  import React, { useState } from "react"
+  import React, { useEffect, useState } from "react"
   import CazualCard from "./CazualCard"
   import { cardItemsType } from "../../types/CardBox"
-  import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-  } from "../../components/ui/pagination"
+  import {Pagination,PaginationContent,PaginationItem,PaginationLink,PaginationNext,PaginationPrevious,} from "../../components/ui/pagination"
   import { Button } from "../ui/button"
   import useAppStore from "../../store"
   import getCards from "../../services/getCards"
@@ -39,15 +31,43 @@
     const [reytingIndex,setReytingIndex] = useState<number>(0)
     const setOpenFilter = useAppStore((state) => state.setOpenFilter);
     
-    const fill = cazualCardInfo.filter((item: any) => {
-    const degreeMatch = reytingSort[reytingIndex]?.resurce && item.degree.toLowerCase() == reytingSort[reytingIndex].resurce.toLowerCase();
-    const titleMatch = useSearch ? item.title.toLowerCase().includes(useSearch.toLowerCase()) : degreeMatch;
-    const filteredDataColor = filterData.check == item.selectColorId;
-    const filteredDataSize = filterData.sizeDress == item.selectSizeId;
-    const filteredDataRange = filterData.range && filterData.range[0] <= item.newPrice && filterData.range && filterData.range[1] >= item.newPrice;
-    const filterDataAll = filteredDataColor && filteredDataSize && filteredDataRange  
-    return titleMatch && degreeMatch || filterDataAll;
-    });
+    const [filterType, setFilterType] = useState<'search' | 'filter' | 'none'>('none');
+
+useEffect(() => {
+  if (useSearch) setFilterType('search');
+  else if (filterData.check || filterData.sizeDress || filterData.range || filterData.cazual) setFilterType('filter');
+  else setFilterType('none');
+}, [useSearch, filterData]);
+
+const fill = cazualCardInfo.filter((item: any) => {
+  const degreeMatch = !reytingSort[reytingIndex]?.resurce || reytingSort[reytingIndex]?.resurce?.toLowerCase() === item.degree?.toLowerCase();
+
+  // search bor bo‘lsa
+  if (filterType === 'search') {
+    return item.title.toLowerCase().includes(useSearch.toLowerCase());
+  }
+  
+
+  // filter bor bo‘lsa
+  if (filterType === 'filter') {
+    const matchCheck = !filterData.check || item.color.includes(filterData.check);
+    const matchSize = !filterData.sizeDress || item.size.includes(filterData.sizeDress);
+    const matchRange = !filterData.range || (item.newPrice >= filterData.range[0] && item.newPrice <= filterData.range[1]);
+    const matchCazual = !filterData.cazual || item.cazual === filterData.cazual;
+
+    return matchCheck && matchSize && matchRange && matchCazual && degreeMatch;
+  }
+
+  // faqat degree ishlayotgan holat
+  else if (reytingSort[reytingIndex]?.resurce) {
+    return degreeMatch;
+  }
+
+  return false;
+});
+
+
+    
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;

@@ -62,7 +62,8 @@ const Footer = () => {
 
   return (
     <section className="footer relative bg-[#F0F0F0]  pb-10 mt-20 pt-20 max-sm:mt-30">
-      <AnimatedSection  directions={["bottom"]}><div className="subscribe px-4 max-sm:w-[480px] max-[480px]:!w-full  absolute -top-20 max-sm:-top-30 left-1/2 transform -translate-x-1/2">
+      <AnimatedSection extraClass="subscribe px-4 max-sm:w-[480px] max-[480px]:!w-full absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2" directions={["bottom"]}>
+        <div>
         <div className="container sm:flex justify-between bg-black text-white rounded-2xl p-4 min-[480px]:px-12 min-[480px]:py-8">
           <strong className="text-3xl lg:text-5xl pe-4 w-[300px] md:w-[600px]">STAY UPTO DATE ABOUT OUR LATEST OFFERS</strong>
           <div className="min-sm:w-[200px] max-sm:mt-4 md:w-[349px] flex flex-col justify-center space-y-3 text-black">
@@ -73,7 +74,8 @@ const Footer = () => {
             <button className="rounded-full bg-white py-1.5 text-center  w-full font-semibold">Subscribe to Newsletter</button>
           </div>
         </div>
-      </div></AnimatedSection>
+      </div>
+      </AnimatedSection>
       
       <AnimatedSection  directions={["left"]}><ul className="footerPaths py-14 max-[416px]:!pt-20 container max-sm:px-4 max-md:space-y-4 grid grid-cols-12 min-[400px]:grid-cols-6 px-2 md:grid-cols-12 sm:gap-8 ">
         {footerCols.map((item: footerColsType) => (

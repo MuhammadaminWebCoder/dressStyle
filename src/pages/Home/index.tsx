@@ -22,7 +22,7 @@ const Home = () => {
     <div>
       <Hero/>
       <Brands/>
-      <section className={`new_arrivals max-sm:px-4 py-6 md:py-12 `}>
+      <section id="arrivals" className={`new_arrivals max-sm:px-4 py-6 md:py-12 `}>
         <h1 className="text-3xl lg:text-5xl font-extrabold text-center">{'NEW ARRIVALS'}</h1>
         <ul className="container gap-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 justify-between min-[480px]:!pt-10 pt-4">
         {visibleItems1.map((item:cardItemsType,ind:number)=> <NewCards key={ind} item={item}/>)}
@@ -30,8 +30,8 @@ const Home = () => {
         <Button onClick={() => setOpenMoreCard1(true)} className={`max-sm:w-full w-[170px] lg:w-[200px] h-[40px] lg:h-[48px] bg-white border rounded-full text-black mx-auto flex mt-7 duration-300 hover:text-white ${openMoreCard1 && 'hidden'}`}>View All</Button>
       </section>
       <hr />
-      <section className={`new_arrivals max-sm:px-4 py-6 md:py-12 `}>
-        <h1 className="text-3xl lg:text-5xl font-extrabold text-center">{'NEW ARRIVALS'}</h1>
+      <section id="sale" className={`new_arrivals max-sm:px-4 py-6 md:py-12 `}>
+        <h1 className="text-3xl lg:text-5xl font-extrabold text-center">{'TOP SELLING'}</h1>
         <ul className="container gap-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 justify-between min-[480px]:!pt-10 pt-4">
         {visibleItems2.map((item:cardItemsType,ind:number)=> <NewCards key={ind} item={item}/>)}
         </ul>

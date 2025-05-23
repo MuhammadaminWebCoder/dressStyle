@@ -5,10 +5,10 @@ import { cardItemsType } from '../types/CardBox'
 import { AnimatedSection } from './AnimatedSection'
 const NewCards:React.FC<{item:cardItemsType}> = ({item}) => {
   return (
-    <AnimatedSection  directions={["bottom"]}>
+    <AnimatedSection delay={Number(`0.${item.id}`)} directions={["bottom"]}>
       <li>
         <div className="flex max-sm:justify-center">
-            <Link to={`/cazual/${item.id}`} className="image w-full cardArriveEmote relative overflow-hidden rounded-xl">
+            <Link to={`/cazual/${item.id}`} className="image mx-auto w-full max-[390px]:!h-[130px] max-[472px]:!h-[180px] max-sm:h-[245px] max-sm:w-[220px]  md:h-[181px] lg:h-[245px] xl:h-[300px] h-[300px] border cardArriveEmote relative overflow-hidden rounded-xl">
               <div className='absolute priceOpened z-10 duration-300 w-full h-full -top-full bg-[#00000080] flex items-center justify-center'>
                 <div className='absolute text-white top-[30%]'>
                   {item.newPrice && <i className="text-3xl font-bold text-white">${item.newPrice}</i>}
@@ -16,7 +16,7 @@ const NewCards:React.FC<{item:cardItemsType}> = ({item}) => {
                   {item.salePercent && <p className="text-center bg-red-100 text-red-600 px-2 py-0.5 rounded-full">{item.salePercent}% </p>}
                 </div>  
               </div>
-              <img className='cardHoverScale w-full transition-all duration-300' src={item.image} alt="card img" />
+              <img className='cardHoverScale mx-auto h-full object-cover transition-all duration-300' src={item.image} alt="card img" />
             </Link>
         </div>
         <div className="p-4 space-y-3 flex flex-col max-sm:items-center">
@@ -31,7 +31,7 @@ const NewCards:React.FC<{item:cardItemsType}> = ({item}) => {
           )}
           <span className="text-sm text-gray-600 ml-2">{item.rate}/5</span>
         </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex flex-wrap max-[400px]:justify-center items-center space-x-2">
         {item.newPrice && <span className=" max-[400px]:text-lg text-xl lg:text-2xl font-bold text-black">${item.newPrice}</span>}
         {item.oldPrice && <span className="max-[400px]:text-lg text-gray-400 text-xl lg:text-2xl line-through">${item.oldPrice}</span>}
         {item.salePercent && <span className="text-sm bg-red-100 text-red-600 px-2 py-0.5 rounded-full">{item.salePercent}% </span>}

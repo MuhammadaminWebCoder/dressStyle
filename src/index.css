@@ -134,7 +134,12 @@ html.dark {
   background-size: cover;
   background-position: right;
 }
-
+html {
+  scroll-behavior: smooth;
+}
+section {
+  scroll-margin-top: 80px; 
+}
 @media only screen and (max-width: 766px) {
   .Hero{
     height: 1000px;

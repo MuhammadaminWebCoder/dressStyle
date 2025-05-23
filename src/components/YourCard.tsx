@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { AnimatedSection } from "./AnimatedSection";
+import { toast } from "sonner";
 
 interface CartItem {
   id: number;
@@ -26,10 +27,9 @@ const YourCard = () => {
 
   const ShopCardDelete = (id:number) => {
     if (!cartItems) return;
-
-const filtered = cartItems.filter(item => item.id !== id);
-  setCartItems(filtered); 
-  localStorage.setItem("data", JSON.stringify(filtered)); 
+    const filtered = cartItems.filter(item => item.id !== id);
+    setCartItems(filtered); 
+    localStorage.setItem("data", JSON.stringify(filtered)); 
   }
 
   const increment = (handleId: number) => {
@@ -54,7 +54,22 @@ const filtered = cartItems.filter(item => item.id !== id);
   return acc + discountValue;}, 0) || 0;
   const subtotal = cartItems?.reduce((acc, item) => acc + item.newPrice * item.count, 0) || 0;
   const delivery = 15;
-  const total = subtotal + delivery ;
+  const [promoCode,setPromoCode] = useState<number>(0)
+  const total = subtotal + delivery - promoCode ;
+  const [checkPay,setCheckPay] = useState<boolean>(false)
+  const goToPay = () => {
+    if (checkPay) {
+        toast.success(`${total} - pay thank you`)
+    }else{
+      toast.warning(`no checked pay ${total} . pay with payMe Click or more`)
+    }
+  }
+  const applyCode = () => {
+      if (code == 'Muhammadamin') {
+        toast.success(`promocode - ${code} succes ${promoCode}$ sale promocode`)
+        setPromoCode(155)
+      }
+  }
 
   return (
     <>
@@ -74,8 +89,8 @@ const filtered = cartItems.filter(item => item.id !== id);
           {cartItems?.map((item: CartItem, ind: number) => (
             <AnimatedSection directions={["left"]}><div key={item.id}>
               <li className="flex">
-                <div>
-                  <img className="rounded-lg max-[500px]:w-[100px] max-[500px]:h-[100px] w-[124px] h-[124px]" src={item.image} alt="cardImg" />
+                <div className="border rounded-lg overflow-hidden max-[500px]:w-[100px] max-[500px]:h-[100px] w-[124px] h-[124px]">
+                  <img className="w-full h-full object-contain" src={item.image} alt="cardImg" />
                 </div>
                 <div className="ms-4 flex-1">
                   <p className="text-xl max-[500px]:text-sm flex justify-between lg:h-[36px] font-bold">
@@ -85,9 +100,7 @@ const filtered = cartItems.filter(item => item.id !== id);
                   <p className="max-[500px]:text-[13px]">Size: <span className="ms-1 text-slate-600">{item.size}</span></p>
                   <p className="max-[500px]:text-[13px]">Color: <span className="ms-1 text-slate-600">{item.color}</span></p>
                   <div className="max-[500px]:text-xl text-2xl flex justify-between items-end font-semibold mt-1">
-                    <div className="flex items-center">{item.newPrice && <p>${item.newPrice}</p>}
-                    {item.oldPrice && <p className="text-gray-400 ms-2 line-through">${item.oldPrice}</p>}
-                    {item.salePercent && <p className="text-center text-sm bg-red-100 w-fit h-fit text-red-600 px-2 py-0.5 rounded-full">${item.salePercent}</p>}</div>
+                    <div className="flex items-center">{item.newPrice && <p>${item.newPrice}</p>}</div>
                     <div className="flex max-[500px]:font-normal max-[500px]:text-sm items-center border bg-slate-200 rounded-full max-[500px]:h-[30px] h-[36px]">
                       <button onClick={() => decrement(item.id)} className="max-[500px]:px-2 px-3 -mt-1.5 cursor-pointer text-3xl">-</button>
                       <span className="max-[500px]:w-[26px] w-[35px] text-center">{item.count}</span>
@@ -127,9 +140,9 @@ const filtered = cartItems.filter(item => item.id !== id);
               <Input onChange={(e) => setCode(e.target.value)} value={code} className="!text-[17px] rounded-full !ps-10 max-[480px]:h-[40px] h-[48px]" placeholder="Add promo code" />
               <Tag className="absolute left-3 max-[480px]:top-2 top-3.5 !w-[20px]" />
             </div>
-            <Button className="max-[480px]:h-[40px] h-[48px] rounded-full px-8">Apply</Button>
+            <Button onClick={applyCode} className="max-[480px]:h-[40px] h-[48px] cursor-pointer rounded-full px-8">Apply</Button>
           </div>
-          <Button className="max-[480px]:h-[45px] h-[58px] rounded-full text-md w-full px-8">
+          <Button onClick={goToPay} className="max-[480px]:h-[45px] h-[58px] cursor-pointer rounded-full text-md w-full px-8">
             Go to Checkout <ArrowRight className="!w-5 !h-5" />
           </Button>
           </div>
