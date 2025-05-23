@@ -42,13 +42,11 @@ useEffect(() => {
 const fill = cazualCardInfo.filter((item: any) => {
   const degreeMatch = !reytingSort[reytingIndex]?.resurce || reytingSort[reytingIndex]?.resurce?.toLowerCase() === item.degree?.toLowerCase();
 
-  // search bor bo‘lsa
   if (filterType === 'search') {
     return item.title.toLowerCase().includes(useSearch.toLowerCase());
   }
   
 
-  // filter bor bo‘lsa
   if (filterType === 'filter') {
     const matchCheck = !filterData.check || item.color.includes(filterData.check);
     const matchSize = !filterData.sizeDress || item.size.includes(filterData.sizeDress);
@@ -58,7 +56,6 @@ const fill = cazualCardInfo.filter((item: any) => {
     return matchCheck && matchSize && matchRange && matchCazual && degreeMatch;
   }
 
-  // faqat degree ishlayotgan holat
   else if (reytingSort[reytingIndex]?.resurce) {
     return degreeMatch;
   }
