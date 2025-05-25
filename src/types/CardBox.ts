@@ -1,4 +1,4 @@
-import { Testimonial } from "../components/OwlCards";
+import { Testimonial } from "@/components/OwlCards";
 
     export interface cardItemsType {
     id:number,

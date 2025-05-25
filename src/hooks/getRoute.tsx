@@ -1,4 +1,4 @@
-import { CardChild, Cazual, Home, Shoping } from "../pages/index";
+import { CardChild, Cazual, Home, Shoping } from "@/pages";
 import { PATH } from "./getPath";
 
 export const RouteItem = [

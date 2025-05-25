@@ -9,31 +9,12 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Slider } from "../ui/slider";
-import useAppStore from "../../store";
+import useAppStore from "@/store";
 import { AnimatedSection } from "../AnimatedSection";
 
-type SizeType =
-  | "XX-Small"
-  | "X-Small"
-  | "Small"
-  | "Medium"
-  | "Large"
-  | "X-Large"
-  | "XX-Large"
-  | "3X-Large"
-  | "4X-Large";
+type SizeType = | "XX-Small" | "X-Small" | "Small" | "Medium" | "Large" | "X-Large" | "XX-Large" | "3X-Large" | "4X-Large";
 
-type ColorType =
-  | "green"
-  | "red"
-  | "yellow"
-  | "orange"
-  | "cyan"
-  | "blue"
-  | "purple"
-  | "pink"
-  | "white"
-  | "black";
+type ColorType = | "green" | "red" | "yellow" | "orange" | "cyan" | "blue" | "purple" | "pink" | "white" | "black";
 
   export interface setDataFilter {
     sizeDress:string
@@ -44,30 +25,11 @@ type ColorType =
 type CazualType = "T-shirts" | "Shorts" | "Shirts" | "Hoodie" | "Jeans";
 
 const SelectFilter: React.FC<{ setFilterData: (filters: setDataFilter) => void }> = ({setFilterData}) => {
-  const dressSizeArr: SizeType[] = [
-    "XX-Small",
-    "X-Small",
-    "Small",
-    "Medium",
-    "Large",
-    "X-Large",
-    "XX-Large",
-    "3X-Large",
-    "4X-Large"
+  const dressSizeArr: SizeType[] = [ "XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"
   ];
 
 
-const colorOptions: ColorType[] = [
-  "green",
-  "red",
-  "yellow",
-  "orange",
-  "cyan",
-  "blue",
-  "purple",
-  "pink",
-  "white",
-  "black"
+const colorOptions: ColorType[] = [ "green", "red", "yellow", "orange", "cyan", "blue", "purple", "pink", "white", "black"
 ];
 
 
@@ -98,10 +60,13 @@ const colorMap: Record<ColorType, string> = {
   const [check, setCheck] = useState<ColorType>("green");
   const [cazual, setCazual] = useState<CazualType>("T-shirts");
 
+  // filter qiymatlarini statega olib otish uchun click fn
   const filterApply = () => {
     setFilterData({ sizeDress, range, check, cazual });
+    setOpenFilter(false)
   };
 
+  // zustand uchun state
   const openFilter = useAppStore((state) => state.openFilter);
   const setOpenFilter = useAppStore((state) => state.setOpenFilter);
 
@@ -123,28 +88,30 @@ const colorMap: Record<ColorType, string> = {
 
       <hr className="my-4" />
 
+      <Accordion className="my-4" type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger className="group flex justify-between w-full items-center">
+      Casual Options
+      <ChevronDownIcon className="ml-2 h-5 w-5 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+    </AccordionTrigger>
+    <AccordionContent>
       {accordionCazual.map((item, ind) => (
-        <Accordion className="my-4" key={ind} type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="group flex justify-between w-full items-center">
-              {item.title}
-              <ChevronDownIcon className="ml-2 h-5 w-5 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-            </AccordionTrigger>
-            <AccordionContent>
-              <Button
-                onClick={() => setCazual(item.title)}
-                className={`cursor-pointer my-2 w-full ${
-                  cazual === item.title
-                    ? 'bg-black text-white'
-                    : '!bg-white text-black'
-                }`}
-              >
-                {item.buttonCazual}
-              </Button>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <Button
+          key={ind}
+          onClick={() => setCazual(item.title)}
+          className={`cursor-pointer my-1 w-full ${
+            cazual === item.title
+              ? 'bg-black text-white'
+              : '!bg-white text-black'
+          }`}
+        >
+          {item.buttonCazual}
+        </Button>
       ))}
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
 
       <hr className="my-4" />
 
@@ -225,10 +192,7 @@ const colorMap: Record<ColorType, string> = {
         </AccordionItem>
       </Accordion>
 
-      <Button
-        onClick={filterApply}
-        className="h-[48px] cursor-pointer w-full rounded-full mt-4"
-      >
+      <Button onClick={filterApply} className="h-[48px] cursor-pointer w-full rounded-full mt-4">
         Apply Filter
       </Button>
     </AnimatedSection>

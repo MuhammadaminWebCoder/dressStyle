@@ -1,4 +1,4 @@
-import { CardInfo } from '../../components/CardChildren/CardInfo'
+import { CardInfo } from "@/components/CardChildren/CardInfo"
 
 const CardChild = () => {
   return (

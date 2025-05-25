@@ -25,13 +25,14 @@ const YourCard = () => {
   
   if (!cartItems) setCartItems(shopCards);
 
+  // cardni localstoragedan va shop dan savatdan olib tashlash uchun delete
   const ShopCardDelete = (id:number) => {
     if (!cartItems) return;
     const filtered = cartItems.filter(item => item.id !== id);
     setCartItems(filtered); 
     localStorage.setItem("data", JSON.stringify(filtered)); 
   }
-
+// count sanogini oshiruvchi
   const increment = (handleId: number) => {
     if (!cartItems) return;
     const updated = cartItems.map((item) =>
@@ -40,6 +41,7 @@ const YourCard = () => {
     setCartItems(updated);
   };
 
+// count sanogini tushuruvchi
   const decrement = (handleId: number) => {
     if (!cartItems) return;
     const updated = cartItems.map((item) =>
@@ -48,6 +50,7 @@ const YourCard = () => {
     setCartItems(updated);
   };
 
+  // narxni shopingda hisoblash 
   const discount = cartItems?.reduce((acc, item) => {
   const hasDiscount = item.oldPrice && item.oldPrice > item.newPrice;
   const discountValue = hasDiscount ? (item.oldPrice - item.newPrice) * item.count : 0;
@@ -55,9 +58,12 @@ const YourCard = () => {
   const subtotal = cartItems?.reduce((acc, item) => acc + item.newPrice * item.count, 0) || 0;
   const delivery = 15;
   const [promoCode,setPromoCode] = useState<number>(0)
+  // umumiy summa total orqali keladi
   const total = subtotal + delivery - promoCode ;
-  const [checkPay,setCheckPay] = useState<boolean>(false)
-  setCheckPay(false)
+
+  const [checkPay,_setCheckPay] = useState<boolean>(false)
+
+  // agar pul tolansa raxmat tolanmasa warning chiqadi
   const goToPay = () => {
     if (checkPay) {
         toast.success(`${total} - pay thank you`)
@@ -65,11 +71,13 @@ const YourCard = () => {
       toast.warning(`no checked pay ${total}$ . pay with payMe Click or more`)
     }
   }
+  // promocode bonus pul taqdim etish uchun code va price
   const applyCode = () => {
       if (code == 'Muhammadamin') {
         setPromoCode(155)
       }
   }
+  // har gal promocode ishlatilganda alert orqalai har gal taqdim etish uchun
 useEffect(() => {
     if (promoCode > 0) {
       toast.success(`Promocode - ${code} success! You got $${promoCode} sale.`);

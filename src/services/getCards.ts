@@ -1,4 +1,4 @@
-import { instance } from "../hooks/instance"
+import { instance } from "@/hooks/instance"
 import { useQuery } from "@tanstack/react-query"
 
 const getCards = () => {

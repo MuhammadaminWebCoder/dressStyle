@@ -1,4 +1,4 @@
-import YourCard from "../../components/YourCard"
+import YourCard from "@/components/YourCard"
 
 const Shoping = () => {
   return (

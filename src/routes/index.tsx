@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { RouteItem } from '../hooks/getRoute'
+import { RouteItem } from '@/hooks/getRoute'
 import {Route, Routes} from 'react-router-dom'
 export interface RouteItem {
   id: number;

@@ -6,6 +6,7 @@ import { useAuthStore } from "./store/authStore";
 function App() {
   const UseFutureLazy = lazy(() => import("./futures"))
   const setUser = useAuthStore((state)=> state.setUser)
+  // agar tokken bolsa user topadi
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {

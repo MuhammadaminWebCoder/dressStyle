@@ -1,12 +1,12 @@
-import NewCards from "../../components/NewCards"
-import Brands from "../../components/Brands"
-import Hero from "../../components/Hero"
-import StyleDress from "../../components/StyleDress"
-import {OwlCards} from "../../components/OwlCards"
-import getCards from "../../services/getCards"
+import NewCards from "@/components/NewCards"
+import Brands from "@/components/Brands"
+import Hero from "@/components/Hero"
+import StyleDress from "@/components/StyleDress"
+import {OwlCards} from "@/components/OwlCards"
+import getCards from "@/services/getCards"
 import { useState } from "react"
-import { cardItemsType } from "../../types/CardBox"
-import { Button } from "../../components/ui/button"
+import { cardItemsType } from "@/types/CardBox"
+import { Button } from "@/components/ui/button"
 
 const Home = () => {
   const { data } = getCards();

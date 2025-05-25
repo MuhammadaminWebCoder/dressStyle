@@ -1,18 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Alert, AlertTitle } from "../components/ui/alert";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { PATH } from "../hooks/getPath";
 import { ChevronDown, Chrome, CircleUser, EyeIcon, EyeOffIcon, Github, Instagram, LogOut, Search, ShoppingCart, X } from 'lucide-react';
-import { Logo } from "../assets/icons";
-import { Input } from "../components/ui/input";
-import { UsePageType } from "../types/headerPathType";
+import { Logo } from "@/assets/icons";
+import { Input } from "@/components/ui/input";
+import { UsePageType } from "@/types/headerPathType";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogDescription, DialogTrigger } from "../components/ui/dialog";
-import { Button } from "../components/ui/button";
-import useAppStore from "../store";
+import { Dialog, DialogContent, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import useAppStore from "@/store";
 import { toast } from "sonner";
-import { useLogin } from "../services/postUser";
+import { useLogin } from "@/services/postUser";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { useAuthStore } from "../store/authStore";
+import { useAuthStore } from "@/store/authStore";
 
 const Header = () => {
   const usePages: UsePageType[] = [
@@ -27,22 +27,26 @@ const Header = () => {
     { id: 3, title: 'New Arrivals', path:'/#arrivals'},
     { id: 4, title: 'Brands', path:'/#brands'},
   ];
-
+  const navigate = useNavigate();
+  
+  const useSetSearch = useAppStore(state => state.setSearchValue)
   const [handleOpenSearch, setHandleOpenSearch] = useState(false);
   const [alertClose, setAlertColse] = useState(false);
   const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-const navigate = useNavigate();
+
+  // menyu bar close bar ga aylanishi uchun
   const toggle = () => setIsOpen(!isOpen);
+
+  // navbar tepasidagi alert yoqotilinadi
   const closeAlertHandler = () => setAlertColse(true);
-  const useSetSearch = useAppStore(state => state.setSearchValue)
+
+  // search ishalsa cazulaga boradi va card qidiradi
 const handleSubmitSearch = (e:React.FormEvent<HTMLFormElement>) =>{
   e.preventDefault()
   useSetSearch(search)
   navigate('/cazual')
   setHandleOpenSearch(false)
-  // ishlatimlayotganlarni olib tashlash,
-  // full page bug fix and any fix
 }
 
 const [loginPassword, setLoginPassword] = useState<string>('') 

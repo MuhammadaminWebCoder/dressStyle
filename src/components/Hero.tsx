@@ -11,14 +11,15 @@ const stats = [
 ];
   
 const Hero = () => {
-    const [counts, setCounts] = useState(() => 
-      stats.map(() => 0)
-    );
+    //  1 tta stateni 2 yoki 3 hil maqsadda foydalanish uchun
+    const [counts, setCounts] = useState(() =>  stats.map(() => 0));
   
+    // randomniy sonlar beriladi 
     const targets = useState(() => 
       stats.map(() => Math.floor(Math.random() * 100) + 100)
     )[0];
   
+    // 1 martta sanoq ishlashi uchun
     useEffect(() => {
       const intervals = stats.map((_, i) => {
         return setInterval(() => {

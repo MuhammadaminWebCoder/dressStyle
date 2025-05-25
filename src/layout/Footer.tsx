@@ -1,9 +1,9 @@
-import { Input } from "../components/ui/input"
-import { Logo, PayApple, PayGoogle, PayMaster, PayPal, PayVisa } from '../assets/icons/index'
+import { Input } from "@/components/ui/input"
+import { Logo, PayApple, PayGoogle, PayMaster, PayPal, PayVisa } from '@/assets/icons/index'
 import { Link } from "react-router-dom"
 import { Facebook, Github, Instagram, MailIcon, Twitter } from "lucide-react"
-import { footerColsType, iconsPathFooter } from "../types/footerCols"
-import { AnimatedSection } from "../components/AnimatedSection"
+import { footerColsType, iconsPathFooter } from "@/types/footerCols"
+import { AnimatedSection } from "@/components/AnimatedSection"
 
 const Footer = () => {
   const footerCols: footerColsType[] = [

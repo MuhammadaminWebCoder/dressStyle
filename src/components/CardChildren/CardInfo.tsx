@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Star, ChevronRight, Check, SlidersVertical, Ellipsis } from "lucide-react";
-import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast, Toaster } from "sonner";
-import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TabsContent } from "@radix-ui/react-tabs";
 import { Testimonial } from "../OwlCards";
 import NewCards from "../NewCards";
-import { cardItemsType } from "../../types/CardBox";
-import getCards from "../../services/getCards";
-import { PATH } from "../../hooks/getPath";
+import { cardItemsType } from "@/types/CardBox";
+import getCards from "@/services/getCards";
+import { PATH } from "@/hooks/getPath";
 import { AnimatedSection } from "../AnimatedSection";
 export interface SelectedCard {
   id?: number | string;
@@ -26,19 +26,27 @@ export interface SelectedCard {
 export const CardInfo: React.FC = () => {
   const { id } = useParams();
   const { data = []} = getCards();
+
+  // kerakli card ni topadi
   const CardData = data.find((item: cardItemsType) => String(item.id) === id);
  
   const [count,setCount] = useState<number>(1)
   const [imageSlideId,setImageSlideId] = useState<number>(0)
+
+  // tanlangan color click bolishi
   const selectedColor = (checked: string): void => {
     setCheck(checked)
   }
+
+  // tanlangan koylak razmeri click bolishi
   const dressSize = (selectDress:string):void => {
     setSize(selectDress)
   }
+
  const [check, setCheck] = useState<string>("");
 const [sizeDress, setSize] = useState<string>("");
 
+// card kelsa default 0 chi element qoyadi
 useEffect(() => {
   if (CardData) {
     setCheck(CardData.color[0] || "");
@@ -47,7 +55,7 @@ useEffect(() => {
 }, [CardData]);
 
   const navigate = useNavigate()
-
+  // jonatilinuvchi object
   const selectedCard = {
     id: CardData?.id,
     title: CardData?.title,
@@ -59,13 +67,18 @@ useEffect(() => {
     count: count,
     image: CardData?.image,
   };
+
+  // jsondan cardni olish localstorage
   const existingData = JSON.parse(localStorage.getItem('data') || '[]');
 
+  // shoping yani karzinkaga yuboruvchi
  const handleAddCard = () => {
-   
+
+  // faqat bir martta jonatilishini taminlaydi
    const unicData = existingData.some((item:SelectedCard) => 
     item.id === selectedCard.id && item.title === selectedCard.title
   )
+  // agar bir martta jonatilayotgan bolsa alert succeess chiqadi yoki warning
   if (!unicData) {
       toast.success("Product added to cart", {
         description: `Size: ${sizeDress}, Color: Variant ${check}`,
@@ -102,8 +115,10 @@ useEffect(() => {
   const [openMoreComment,setOpenMoreComment] = useState<boolean>(false)
   const [openMoreCard2,setOpenMoreCard2] = useState<boolean>(false)
   
+  // top cardlar boyicha filter boladi
   const topCards: cardItemsType[] = data.filter((item:cardItemsType) => item.degree === 'top')
 
+  // 4 tadan oshgan cardlar qolganlari yoq qilinip turladi
   const cardComment = openMoreComment ? CardData?.productComents : CardData?.productComents?.slice(0, 4)
   const visibleItems2 = openMoreCard2 ? topCards : topCards.slice(0, 4)
 
@@ -177,9 +192,9 @@ useEffect(() => {
 
           <div className="flex items-center gap-4 mt-4">
             <div className="flex items-center border bg-slate-200 rounded-full  max-[480px]:h-[40px] h-[50px]">
-              <button onClick={() => setCount(count > 1 ? count - 1 : 1)} className="max-[480px]:px-3 px-6 cursor-pointer text-3xl">-</button>
+              <button onClick={() => setCount(count > 1 ? count - 1 : 1)} className="max-[480px]:px-3 -mt-1 px-6 cursor-pointer text-3xl">-</button>
               <span className="max-[480px]:w-[30px] w-[50px] text-center">{count}</span>
-              <button onClick={() => setCount(count + 1)} className="max-[480px]:px-3 px-6 cursor-pointer text-3xl">+</button>
+              <button onClick={() => setCount(count + 1)} className="max-[480px]:px-3 -mt-1 px-6 cursor-pointer text-3xl">+</button>
             </div>
             <Button onClick={handleAddCard} className="rounded-full cursor-pointer flex-1  max-[480px]:h-[40px] h-[50px]">Add to Cart</Button>
           </div>
